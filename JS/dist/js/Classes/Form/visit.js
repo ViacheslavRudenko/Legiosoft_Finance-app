@@ -1,11 +1,11 @@
-import Form from "./form.js";
-import DoctorAPIService from "./doctorAPIService.js";
+import Form from "../form.js";
+import DoctorAPIService from "../doctorAPIService.js";
 
 const translate = {
   purpose: "Цель",
   name: "ФИО",
   doctor: "Доктор",
-  pressure: "Давление",
+  pressure: "Обычное",
   diseases: "Перенесенн",
   age: "Возраст",
   id: "Номер визита",

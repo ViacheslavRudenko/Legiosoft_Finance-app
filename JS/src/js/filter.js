@@ -128,6 +128,4 @@ export default class Filter {
     this.getDefaultFilter();
   }
 }
-const filter = new Filter();
 
-filter.render();

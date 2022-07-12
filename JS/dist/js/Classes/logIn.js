@@ -111,5 +111,5 @@ import {
   btnCreatVisit,
   mainBox,
   doctorAPIService,
-} from "./main.js";
+} from "../main.js";
 import Form from "./form.js";

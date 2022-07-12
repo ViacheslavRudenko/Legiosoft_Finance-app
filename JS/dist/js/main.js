@@ -36,13 +36,11 @@ btnLogIn.addEventListener("click", (e) => {
   logIn.render();
 });
 
-//------------- visit modal ------------------
+import CardioVisitForm from "./Component/Form/visitForm/Cardio/cardioVisitForm.js";
+import DentistVisitForm from "./Component/Form/visitForm/Dentist/dentistVusitForm.js";
+import TherapistVisitForm from "./Component/Form/visitForm/Therapist/therapistVisitForm.js";
 
-import CardioVisitForm from "./visistForm/Cardio/cardioVisitForm.js";
-import DentistVisitForm from "./visistForm/Dentist/dentistVusitForm.js";
-import TherapistVisitForm from "./visistForm/Therapist/therapistVisitForm.js";
-
-btnCreatVisit.addEventListener("click", () => {
+export const visitModalAction = btnCreatVisit.addEventListener("click", () => {
   btnCreatVisit.disabled = true;
   const doctorsBox = document.createElement("div");
   doctorsBox.classList.add("doctors-box");
@@ -76,5 +74,8 @@ btnCreatVisit.addEventListener("click", () => {
 });
 
 import DoctorAPIService from "./doctorAPIService.js";
-
 export const doctorAPIService = new DoctorAPIService();
+import Filter from "./filter.js";
+const filter = new Filter();
+
+filter.render();

@@ -1,5 +1,5 @@
 import Form from "./form.js";
-import DoctorAPIService from "./doctorAPIService.js";
+import DoctorAPIService from "../doctorAPIService.js";
 
 const translate = {
   purpose: "Цель",

@@ -1,5 +1,5 @@
 import VisitForm from "./visitForm";
-import { doctorAPIService } from "./main.js";
+import { doctorAPIService } from "../../../main.js";
 
 export default class EditCardForm extends VisitForm {
   createEditForm() {

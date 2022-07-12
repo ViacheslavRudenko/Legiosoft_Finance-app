@@ -1,6 +1,6 @@
 const body = document.querySelector("body");
 
-import Component from "./component.js";
+import Component from "./Classes/component.js";
 export default class Form extends Component {
   createForm = () => {
     this.position = "beforeend";

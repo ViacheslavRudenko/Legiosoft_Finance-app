@@ -1,6 +1,6 @@
 import Component from "./component.js";
-import { token } from "./main.js";
-import Visit from "./visit.js";
+import { token } from "../main.js";
+import Visit from "../Component/Form/visit.js";
 
 export default class DoctorAPIService extends Component {
   createCard(obj) {
