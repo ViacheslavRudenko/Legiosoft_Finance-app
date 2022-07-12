@@ -19,7 +19,7 @@ const autoClick = (id) => document.getElementById(`${id}`).click();
 export let visitDentist, visitCardiologist, visitTherapist;
 export let item = 0;
 
-import LogInForm from "./logIn.js";
+import LogInForm from "./Component/Form/logIn.js";
 
 export let passObj = [
   { login: "admin@gmail.com", password: "qwerty123" },
@@ -73,7 +73,7 @@ export const visitModalAction = btnCreatVisit.addEventListener("click", () => {
   });
 });
 
-import DoctorAPIService from "./doctorAPIService.js";
+import DoctorAPIService from "./Component/doctorAPIService.js";
 export const doctorAPIService = new DoctorAPIService();
 import Filter from "./filter.js";
 const filter = new Filter();

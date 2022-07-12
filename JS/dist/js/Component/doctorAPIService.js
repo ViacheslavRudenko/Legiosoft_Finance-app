@@ -59,4 +59,4 @@ export default class DoctorAPIService extends Component {
     });
   }
 }
-import DragDrop from "./dragDrop.js";
+import DragDrop from "../dragDrop.js";
