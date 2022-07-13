@@ -18,8 +18,9 @@ export default class Visit extends Form {
     this.position = "beforeend";
     this.parentElement = document.querySelector(".main-content");
     this.createElement(`
-      <div data-item=${data.id} data-doctor=${data.doctor}  class=' visit-cardiologist-card card-body visit-card-element edit-card-${data.id}'>
-      <div   class='delete-card delete-card-${data.id}'> X </div>
+      <div data-item=${data.id} data-doctor=${data.doctor}  
+      class='visit-card card-body visit-card-element edit-card-${data.id}'>
+      <div   class='visit-card-element__btn--close delete-card delete-card-${data.id}'> X </div>
   
       </div>`);
     this.renderCardItem(data);
@@ -61,7 +62,7 @@ export default class Visit extends Form {
     this.position = "beforeend";
     this.parentElement = parent;
     this.createElement(
-      `<div class="btn-change"><button class=${className}  data-id='${data.id}'btn>Изменить</button></div>`
+      `<div class="btn-change"><button class='${className} btn visit-card-element__btn--change'  data-id='${data.id}'btn>Изменить</button></div>`
     );
   }
 

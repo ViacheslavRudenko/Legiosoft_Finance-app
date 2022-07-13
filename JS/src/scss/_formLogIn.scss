@@ -2,15 +2,7 @@
   position: relative;
   padding-left: 20px;
   padding-right: 20px;
-  span {
-    position: absolute;
-    top: -18px;
-    left: 10px;
-    background-color: #fff;
-    padding: 5px 10px;
-    font-size: 15px;
-  }
-  input {
+  &__item {
     height: 50px;
     border: 2px solid #eee;
     width: 100%;
@@ -21,14 +13,6 @@
     }
   }
 }
-
-.invalid-feedback,
 .invalid-data {
-  display: none;
-  color: red;
-  margin: 5px 0 0 0;
-}
-.invalid-data {
-  padding-bottom: 10px;
-  padding-left: 20px;
+  padding: 0 0 10px 18px;
 }

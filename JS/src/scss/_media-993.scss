@@ -13,7 +13,7 @@
       width: 200px;
       height: calc(100vh - 126.66px);
       .filter-box {
-        display: block;
+        display: block !important;
         &--grid {
           display: block;
         }

@@ -6,6 +6,7 @@ export default class LogInForm extends Form {
       `<div class="forms-inputs mb-4">
         <span>Email or username</span>
         <input
+        class="forms-inputs__item"
           autocomplete="off"
           type="text"
           id="login"
@@ -35,6 +36,7 @@ export default class LogInForm extends Form {
       `<div class="forms-inputs mb-4">
         <span>Password</span>
         <input
+          class="forms-inputs__item"
           id="password"
           autocomplete="off"
           type="password"

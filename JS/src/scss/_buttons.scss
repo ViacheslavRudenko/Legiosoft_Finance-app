@@ -9,6 +9,8 @@
   border: 2px solid transparent;
   border-radius: 40px;
   box-sizing: border-box;
+  background-color: #000;
+  width: 100%;
 
   &:hover {
     color: white;
@@ -27,18 +29,4 @@
     outline: none;
     background-color: transparent;
   }
-}
-
-//--------------------HEADER--------------------//
-.header-container__btn {
-  .btn {
-    background-color: #000;
-    width: 100%;
-  }
-  .creat-visit-btn {
-    display: none;
-  }
-}
-.show-more {
-  background-color: #000;
 }
