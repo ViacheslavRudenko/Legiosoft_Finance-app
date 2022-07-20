@@ -1,0 +1,17 @@
+.main {
+  padding-top: 10px;
+  display: flex;
+  justify-content: space-between;
+  &__body {
+    width: 930px;
+  }
+}
+
+.body {
+  &__header {
+    display: flex;
+  }
+  &__content {
+    padding-top: 20px;
+  }
+}

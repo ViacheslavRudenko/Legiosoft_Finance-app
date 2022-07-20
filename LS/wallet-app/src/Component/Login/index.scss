@@ -1,0 +1,32 @@
+.login {
+  margin: 0 auto;
+  margin-top: 20px;
+  width: fit-content;
+  border: 2px solid black;
+  padding: 20px;
+  width: 240px;
+
+  &__item {
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    & label {
+      text-align: left;
+      padding: 5px 0;
+    }
+  }
+  &__btn {
+    margin-top: 10px;
+    background-color: initial;
+    padding: 6px 30px;
+    border: 2px solid black;
+    cursor: pointer;
+    box-shadow: 4px 2px 2px black;
+  }
+  &__error {
+    color: red;
+    font-style: italic;
+    padding-top: 5px;
+  }
+}
