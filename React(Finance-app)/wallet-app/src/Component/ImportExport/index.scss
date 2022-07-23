@@ -1,6 +1,15 @@
 .import-export {
   display: flex;
   justify-content: space-between;
-  width: 250px;
-  padding-left: 430px;
+  width: 290px;
+  padding-left: 425px;
+  .btn {
+    background-color: initial;
+    padding: 6px 30px;
+    border: 2px solid black;
+    cursor: pointer;
+    box-shadow: 4px 2px 2px black;
+    margin-left: 10px;
+    border-radius: 0;
+  }
 }

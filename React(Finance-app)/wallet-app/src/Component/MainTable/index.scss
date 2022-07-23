@@ -1,20 +1,14 @@
 .table {
-  width: 100%;
   border: 2px solid black;
+  text-align: center;
   &__header {
     background-color: rgba(10, 10, 10, 0.4);
   }
 }
-tbody tr:nth-child(odd) {
-  background-color: rgba(10, 10, 10, 0.1);
-}
-
-table {
-  border-collapse: collapse;
-}
 
 td,
-th {
-  padding: 3px;
-  border-right: 2px solid black;
+tr {
+  border-left: 2px solid black;
+  border-bottom: none;
+  border-top: none;
 }

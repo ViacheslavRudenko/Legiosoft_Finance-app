@@ -8,7 +8,7 @@ export default function DropList({ listName, dataArr }) {
         {listName.charAt(0).toUpperCase() + listName.slice(1)}
       </option>
       {dataArr.map((data) => (
-        <option key={data.id} value={data.text}>
+        <option key={Math.random()} value={data.text}>
           - {data.text}
         </option>
       ))}

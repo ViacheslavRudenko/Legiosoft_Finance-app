@@ -2,8 +2,15 @@ import "./index.scss";
 import { statusData, typeData } from "./data.js";
 import { Formik, Form, Field } from "formik";
 import DropList from "./DropList/DropList";
+import { useState } from "react";
+import {
+  useTable,
+  useGlobalFilter,
+  useAsyncDebounce,
+  useSortBy,
+} from "react-table";
 
-export default function Filters() {
+export default function Filters({}) {
   return (
     <>
       <Formik
@@ -13,7 +20,7 @@ export default function Filters() {
         }}
       >
         {(propsFormik) => {
-          //console.log(propsFormik);
+          console.log(propsFormik.values);
           return (
             <>
               <Form className="filter">
