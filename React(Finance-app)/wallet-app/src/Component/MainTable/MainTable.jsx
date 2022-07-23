@@ -6,16 +6,16 @@ import Pagination from "./Pagination/Pagination";
 import { deleteData } from "../../Api/api";
 import { deleteItem, editData } from "../../store/actions/transactions/data";
 import CustomForm from "../Forms/CustomForm";
-import { object, string, number } from "yup";
+import { object, string } from "yup";
 import { putData } from "../../Api/api";
-import { editDataValue } from "../../store/types";
 import { useTable, useGlobalFilter, usePagination } from "react-table";
+import Filters from "../Filters/Filters";
+import ImportExport from "../ImportExport/ImportExport";
 
 export default function MianTable({
   toggleModal,
   setModalContent,
   setIsModalOpen,
-  setGlobalFilterData,
 }) {
   let data = useSelector((store) => store.dataLoad.data && store.dataLoad.data);
 
@@ -109,45 +109,43 @@ export default function MianTable({
   const transactionsData = useMemo(() => [...data], [data]);
 
   const {
-    state,
     page,
     getTableProps,
     getTableBodyProps,
     headerGroups,
-    rows,
     prepareRow,
     canPreviousPage,
     canNextPage,
-    pageOptions,
     pageCount,
     gotoPage,
     nextPage,
     previousPage,
-    setPageSize,
     state: { pageIndex, pageSize, globalFilter },
-
     setGlobalFilter,
   } = useTable(
     {
       columns: columns,
       data: transactionsData,
     },
+
     useGlobalFilter,
     usePagination
   );
-
-  // useEffect(() => {
-
-  //   console.log(globalFilter);
-  // }, [globalFilter]);
-
+  useEffect(() => {
+    console.log(globalFilter);
+  }, [globalFilter]);
+  console.log(pageCount);
   return (
     <>
-      <input
-        type="text"
-        value={globalFilter || ""}
-        onChange={(e) => setGlobalFilter(e.target.value)}
-      />
+      <div className="body__header">
+        <Filters setGlobalFilter={setGlobalFilter} />
+        <ImportExport
+          toggleModal={toggleModal}
+          setModalContent={setModalContent}
+          setIsModalOpen={setIsModalOpen}
+        />
+      </div>
+
       <Table {...getTableProps()} striped hover size="sm" className="table">
         <thead className="table__header">
           {headerGroups.map((headerGroup) => (
@@ -176,15 +174,11 @@ export default function MianTable({
         canPreviousPage={canPreviousPage}
         canNextPage={canNextPage}
         pageIndex={pageIndex}
-        pageOptions={pageOptions}
         pageSize={pageSize}
-        rows={rows}
-        state={state}
         nextPage={nextPage}
         previousPage={previousPage}
         gotoPage={gotoPage}
         pageCount={pageCount}
-        setPageSize={setPageSize}
       />
     </>
   );

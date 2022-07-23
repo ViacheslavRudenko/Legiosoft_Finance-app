@@ -2,8 +2,7 @@ import { Field } from "formik";
 import CustomErrorMessage from "./CustomErrorMessage";
 import { Form, Formik } from "formik";
 import { useState } from "react";
-import DropList from "../Filters/DropList/DropList";
-import { statusData, typeData } from "../Filters/data";
+import Button from "../Button/Button";
 
 export default function CustomForm({
   forms,
@@ -13,7 +12,7 @@ export default function CustomForm({
   btn,
 }) {
   const [incorectData, setIncorectData] = useState(false);
-
+  console.log(btn);
   return (
     <>
       <Formik
@@ -48,8 +47,8 @@ export default function CustomForm({
               {incorectData && (
                 <p className="form__error">Invalid login or Password</p>
               )}
-              <div>
-                <button className="btn form__btn" type="submit">
+              <div className="col-md-12 text-center">
+                <button className="btn form__btn center" type="submit">
                   {btn}
                 </button>
               </div>

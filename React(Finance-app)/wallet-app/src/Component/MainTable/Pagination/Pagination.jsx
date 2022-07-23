@@ -5,15 +5,11 @@ export default function Paginator({
   canPreviousPage,
   canNextPage,
   pageIndex,
-  pageOptions,
   pageSize,
-  rows,
-  state,
   nextPage,
   previousPage,
   gotoPage,
   pageCount,
-  setPageSize,
 }) {
   const getVisiblePages = (page, total) => {
     switch (true) {
@@ -38,7 +34,7 @@ export default function Paginator({
     }
   };
 
-  const pageNumberArr = getVisiblePages(pageIndex, pageSize);
+  const pageNumberArr = getVisiblePages(pageIndex, pageCount);
 
   return (
     <>

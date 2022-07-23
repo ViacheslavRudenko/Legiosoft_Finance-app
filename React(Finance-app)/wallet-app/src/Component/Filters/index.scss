@@ -1,5 +1,25 @@
 .filter {
-  width: 260px;
   display: flex;
-  justify-content: space-between;
+  justify-content: start;
+
+  .dropdown {
+    .btn {
+      padding: 10px 50px;
+      background-color: initial;
+      color: black;
+      text-transform: capitalize;
+      border-radius: 0;
+      border: 2px solid;
+      box-shadow: 4px 2px 2px black;
+      margin-right: 20px;
+    }
+  }
+  .dropdown-menu {
+    border: 2px solid;
+    border-radius: 0;
+    padding: 0;
+  }
+  .dropdown-item:hover {
+    border: 2px solid;
+  }
 }

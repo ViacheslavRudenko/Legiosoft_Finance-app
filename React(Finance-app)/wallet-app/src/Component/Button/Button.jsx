@@ -1,16 +1,22 @@
 import "./index.scss";
 import PropTypes from "prop-types";
 
-export default function Button({ btn, btnAction }) {
+export default function Button({ btn, btnAction, btnType }) {
+  console.log(btn);
   return (
     <>
-      {btn.map((e) => (
+      {/* {btn.map((e) => (
         <div className="btn" key={e.id}>
-          <button className="btn__item" id={e.id} onClick={btnAction}>
+          <button
+            className="btn__item"
+            id={e.id}
+            //onClick={btnAction}
+            //type={btnType}
+          >
             {e.text}
           </button>
-        </div>
-      ))}
+        </div> 
+      ))}*/}
     </>
   );
 }

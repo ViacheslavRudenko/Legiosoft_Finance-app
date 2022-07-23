@@ -32,14 +32,6 @@ export default function MainTransactions() {
             <TransactionsBox />
           </div>
           <div className="main__body body">
-            <div className="body__header">
-              <Filters />
-              <ImportExport
-                toggleModal={toggleModal}
-                setModalContent={setModalContent}
-                setIsModalOpen={setIsModalOpen}
-              />
-            </div>
             <div className="body__content">
               {isLoaded ? (
                 <MianTable

@@ -8,7 +8,9 @@ export default function Login({ setIsLogin, isLogin }) {
     { formName: "userName", text: "User name", typeName: "text" },
     { formName: "password", text: "Password", typeName: "password" },
   ];
-  //console.log("try to log-in: ", userLoginData[0]);
+
+  console.log("try to log-in: ", userLoginData[0]);
+
   const valuesValidation = object({
     userName: string()
       .required("The field is required")
@@ -33,7 +35,7 @@ export default function Login({ setIsLogin, isLogin }) {
     userName: "",
     password: "",
   };
-
+  const btn = { id: 1, text: "Ligin" };
   return (
     <CustomForm
       forms={forms}
