@@ -1,19 +1,19 @@
-import { ErrorMessage } from "formik";
 import PropTypes from "prop-types";
 import "./index.scss";
 
-export default function CustomErrorMessage({ name }) {
+export default function CustomErrorMessage({ condition, errorText }) {
   return (
-    <ErrorMessage name={name}>
-      {(message) => (
-        <div className="error">
-          <i>{message}</i>
-        </div>
+    <>
+      {condition && (
+        <span className="form__error" role="alert">
+          {errorText}
+        </span>
       )}
-    </ErrorMessage>
+    </>
   );
 }
 
 CustomErrorMessage.propTypes = {
-  name: PropTypes.string,
+  condition: PropTypes.bool,
+  errorText: PropTypes.string,
 };

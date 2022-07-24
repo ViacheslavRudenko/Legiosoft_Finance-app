@@ -22,7 +22,7 @@ export default function MainTransactions() {
 
   return (
     <>
-      {!isLogin && <Login setIsLogin={setIsLogin} isLogin={isLogin} />}
+      {!isLogin && <Login setIsLogin={setIsLogin} />}
       {isModalOpen && <Modal closeModal={toggleModal} content={modalContent} />}
       {isLogin && (
         <div className="main">
