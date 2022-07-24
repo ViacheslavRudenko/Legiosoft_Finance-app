@@ -1,7 +1,5 @@
-import "./index.scss";
 import { useDispatch, useSelector } from "react-redux";
-import { useEffect, useMemo } from "react";
-import Table from "react-bootstrap/Table";
+import { useMemo } from "react";
 import Pagination from "./Pagination/Pagination";
 import { deleteData } from "../../Api/api";
 import { deleteItem, editData } from "../../store/actions/transactions/data";
@@ -9,10 +7,13 @@ import CustomForm from "../Forms/CustomForm";
 import { object, string } from "yup";
 import { putData } from "../../Api/api";
 import { useTable, useGlobalFilter, usePagination } from "react-table";
-import Filters from "../Filters/Filters";
-import ImportExport from "../ImportExport/ImportExport";
+import Filters from "./Filters/Filters";
+import ImportExport from "./ImportExport/ImportExport";
+import MainTable from "./MainTable/MainTable";
+import Button from "../Button/Button";
+import PropTypes from "prop-types";
 
-export default function MianTable({
+export default function MainContent({
   toggleModal,
   setModalContent,
   setIsModalOpen,
@@ -75,12 +76,12 @@ export default function MianTable({
           initialValue={getInitialValue(data)}
           isValid={editDataFunc}
           setIsModalOpen={setIsModalOpen}
-          btn={"Edit"}
+          btn={[{ id: 1, text: "Edit" }]}
         />
       ),
     });
   };
-  //set Table
+
   const columns = useMemo(
     () => [
       { Header: "ID", accessor: "TransactionId" },
@@ -93,12 +94,14 @@ export default function MianTable({
         accessor: "action",
         Cell: (props) => (
           <>
-            <button className="btn1" onClick={() => editTransactions(props)}>
-              Edit
-            </button>
-            <button className="btn1" onClick={() => deleteTransaction(props)}>
-              Delete
-            </button>
+            <Button
+              btn={[{ id: 1, text: "Edits" }]}
+              btnAction={() => editTransactions(props)}
+            />
+            <Button
+              btn={[{ id: 2, text: "Delete" }]}
+              btnAction={() => deleteTransaction(props)}
+            />
           </>
         ),
       },
@@ -131,10 +134,7 @@ export default function MianTable({
     useGlobalFilter,
     usePagination
   );
-  useEffect(() => {
-    console.log(globalFilter);
-  }, [globalFilter]);
-  console.log(pageCount);
+
   return (
     <>
       <div className="body__header">
@@ -146,29 +146,13 @@ export default function MianTable({
         />
       </div>
 
-      <Table {...getTableProps()} striped hover size="sm" className="table">
-        <thead className="table__header">
-          {headerGroups.map((headerGroup) => (
-            <tr {...headerGroup.getHeaderGroupProps()}>
-              {headerGroup.headers.map((column) => (
-                <th {...column.getHeaderProps()}>{column.render("Header")}</th>
-              ))}
-            </tr>
-          ))}
-        </thead>
-        <tbody {...getTableBodyProps()}>
-          {page.map((row) => {
-            prepareRow(row);
-            return (
-              <tr {...row.getRowProps()}>
-                {row.cells.map((cell) => (
-                  <td {...cell.getCellProps()}>{cell.render("Cell")}</td>
-                ))}
-              </tr>
-            );
-          })}
-        </tbody>
-      </Table>
+      <MainTable
+        getTableProps={getTableProps}
+        headerGroups={headerGroups}
+        getTableBodyProps={getTableBodyProps}
+        page={page}
+        prepareRow={prepareRow}
+      />
 
       <Pagination
         canPreviousPage={canPreviousPage}
@@ -183,3 +167,9 @@ export default function MianTable({
     </>
   );
 }
+
+MainContent.propTypes = {
+  toggleModal: PropTypes.func,
+  setModalContent: PropTypes.func,
+  setIsModalOpen: PropTypes.func,
+};

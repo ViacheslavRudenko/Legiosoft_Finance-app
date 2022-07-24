@@ -1,11 +1,11 @@
 import React from "react";
 import "./index.scss";
+import PropTypes from "prop-types";
 
 export default function Paginator({
   canPreviousPage,
   canNextPage,
   pageIndex,
-  pageSize,
   nextPage,
   previousPage,
   gotoPage,
@@ -66,3 +66,13 @@ export default function Paginator({
     </>
   );
 }
+
+Paginator.propTypes = {
+  canPreviousPage: PropTypes.bool,
+  canNextPage: PropTypes.bool,
+  pageIndex: PropTypes.number,
+  nextPage: PropTypes.func,
+  previousPage: PropTypes.func,
+  gotoPage: PropTypes.func,
+  pageCount: PropTypes.number,
+};

@@ -1,13 +1,15 @@
-import "./index.scss";
 import CustomForm from "../Forms/CustomForm";
 import { object, string } from "yup";
 import { userLoginData } from "./data";
+import { useState } from "react";
+import PropTypes from "prop-types";
 
 export default function Login({ setIsLogin, isLogin }) {
   const forms = [
     { formName: "userName", text: "User name", typeName: "text" },
     { formName: "password", text: "Password", typeName: "password" },
   ];
+  const [incorectUserData, setIncorectUserData] = useState(false);
 
   console.log("try to log-in: ", userLoginData[0]);
 
@@ -22,7 +24,7 @@ export default function Login({ setIsLogin, isLogin }) {
   });
 
   const isLoginValid = (values, action) => {
-    userLoginData.map((data) => {
+    return userLoginData.map((data) => {
       (data.userName === values.userName &&
         data.password === values.password &&
         setIsLogin(true)) ||
@@ -35,14 +37,22 @@ export default function Login({ setIsLogin, isLogin }) {
     userName: "",
     password: "",
   };
-  const btn = { id: 1, text: "Ligin" };
+  const btn = [{ id: 1, text: "Login" }];
   return (
     <CustomForm
       forms={forms}
       valuesValidation={valuesValidation}
       initialValue={initialValue}
       isValid={isLoginValid}
-      btn={"Login"}
+      btn={btn}
+      incorectDataText={"Invalid login or Password"}
+      incorectUserData={incorectUserData}
+      setIncorectUserData={setIncorectUserData}
     />
   );
 }
+
+Login.propTypes = {
+  setIsLogin: PropTypes.func,
+  isLogin: PropTypes.bool,
+};

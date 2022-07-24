@@ -12,3 +12,12 @@ tr {
   border-bottom: none;
   border-top: none;
 }
+td:last-of-type {
+  width: 200px;
+  .btn {
+    padding: 0;
+    &__item {
+      padding: 0 10px;
+    }
+  }
+}

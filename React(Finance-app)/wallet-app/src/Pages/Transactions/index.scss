@@ -1,9 +1,12 @@
 .main {
-  padding-top: 10px;
+  padding-top: 4px;
   display: flex;
   justify-content: space-between;
   &__body {
     width: 930px;
+  }
+  &__aside {
+    padding-top: 6px;
   }
 }
 

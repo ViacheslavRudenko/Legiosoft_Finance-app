@@ -1,7 +1,7 @@
 import "./index.scss";
 import { statusData, typeData } from "./data.js";
-import { Formik, Form } from "formik";
-import DropList from "./DropList/DropList";
+import DropList from "./DropList";
+import PropTypes from "prop-types";
 
 export default function Filters({ setGlobalFilter }) {
   return (
@@ -20,3 +20,7 @@ export default function Filters({ setGlobalFilter }) {
     </div>
   );
 }
+
+DropList.propTypes = {
+  setGlobalFilter: PropTypes.func,
+};

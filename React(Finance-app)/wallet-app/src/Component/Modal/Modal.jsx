@@ -1,5 +1,4 @@
 import "./index.scss";
-import Button from "../Button/Button";
 import PropTypes from "prop-types";
 
 export default function Modal({ closeModal, actionWithModal, content }) {
@@ -16,12 +15,7 @@ export default function Modal({ closeModal, actionWithModal, content }) {
                 </button>
               </div>
             </div>
-            <div className="modal-win__main main">
-              {content.content}
-              {/* <div className="modal-win__btn btn">
-                <Button btn={btn} btnAction={actionWithModal} />
-              </div> */}
-            </div>
+            <div className="modal-win__main main">{content.content}</div>
           </div>
         </div>
       </div>
@@ -29,9 +23,9 @@ export default function Modal({ closeModal, actionWithModal, content }) {
   );
 }
 
-// Modal.propTypes = {
-//   modal: PropTypes.object,
-//   product: PropTypes.object,
-//   closeModal: PropTypes.func,
-//   setShopingList: PropTypes.func,
-// };
+Modal.propTypes = {
+  modal: PropTypes.object,
+  product: PropTypes.object,
+  closeModal: PropTypes.func,
+  setShopingList: PropTypes.func,
+};

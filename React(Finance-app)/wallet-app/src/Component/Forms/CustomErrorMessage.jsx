@@ -1,4 +1,5 @@
 import { ErrorMessage } from "formik";
+import PropTypes from "prop-types";
 import "./index.scss";
 
 export default function CustomErrorMessage({ name }) {
@@ -12,3 +13,7 @@ export default function CustomErrorMessage({ name }) {
     </ErrorMessage>
   );
 }
+
+CustomErrorMessage.propTypes = {
+  name: PropTypes.string,
+};

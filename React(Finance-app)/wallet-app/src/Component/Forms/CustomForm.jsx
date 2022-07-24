@@ -1,18 +1,19 @@
 import { Field } from "formik";
 import CustomErrorMessage from "./CustomErrorMessage";
 import { Form, Formik } from "formik";
-import { useState } from "react";
 import Button from "../Button/Button";
-
+import PropTypes from "prop-types";
+import { statusData, typeData } from "../MainContent/Filters/data";
 export default function CustomForm({
   forms,
   valuesValidation,
   initialValue,
   isValid,
   btn,
+  incorectUserData,
+  setIncorectUserData,
+  incorectDataText,
 }) {
-  const [incorectData, setIncorectData] = useState(false);
-  console.log(btn);
   return (
     <>
       <Formik
@@ -25,32 +26,34 @@ export default function CustomForm({
             <Form
               onSubmit={props.handleSubmit}
               className="form"
-              onClick={() => setIncorectData(false)}
+              onClick={
+                incorectDataText ? () => setIncorectUserData(false) : null
+              }
             >
               <ul>
                 {forms.map((form) => (
                   <li key={form.formName} className={"form__item"}>
-                    <label htmlFor={form.formName}>{form.text}</label>
-                    <Field
-                      type={form.typeName}
-                      name={form.formName}
-                      id={form.formName}
-                      className={"form__input"}
-                      disabled={
-                        form.formName !== "TransactionId" ? false : true
-                      }
-                    />
-                    <CustomErrorMessage name={form.formName} />
+                    <>
+                      <label htmlFor={form.formName}>{form.text}</label>
+                      <Field
+                        type={form.typeName}
+                        name={form.formName}
+                        id={form.formName}
+                        className={"form__input"}
+                        disabled={
+                          form.formName !== "TransactionId" ? false : true
+                        }
+                      />
+                      <CustomErrorMessage name={form.formName} />
+                    </>
                   </li>
                 ))}
               </ul>
-              {incorectData && (
-                <p className="form__error">Invalid login or Password</p>
+              {incorectUserData && (
+                <p className="form__error">{incorectDataText}</p>
               )}
               <div className="col-md-12 text-center">
-                <button className="btn form__btn center" type="submit">
-                  {btn}
-                </button>
+                <Button typeName={"submit"} btn={btn} />
               </div>
             </Form>
           );
@@ -59,3 +62,14 @@ export default function CustomForm({
     </>
   );
 }
+
+CustomForm.propTypes = {
+  forms: PropTypes.array,
+  valuesValidation: PropTypes.object,
+  initialValue: PropTypes.object,
+  isValid: PropTypes.func,
+  btn: PropTypes.array,
+  incorectUserData: PropTypes.bool,
+  setIncorectUserData: PropTypes.func,
+  incorectDataText: PropTypes.string,
+};

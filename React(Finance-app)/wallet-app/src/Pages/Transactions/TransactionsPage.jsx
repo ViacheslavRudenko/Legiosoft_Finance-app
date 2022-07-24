@@ -1,11 +1,9 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import Filters from "../../Component/Filters/Filters";
-import ImportExport from "../../Component/ImportExport/ImportExport";
 import Login from "../../Component/Login/Login";
-import MianTable from "../../Component/MainTable/MainTable";
+import MianContent from "../../Component/MainContent/MainContent";
 import Modal from "../../Component/Modal/Modal";
-import TransactionsBox from "../../Component/Transactions/Transactions";
+import TransactionsBox from "../../Component/Aside/Transactions";
 import { axiosData } from "../../store/actions/transactions/data";
 import "./index.scss";
 
@@ -34,7 +32,7 @@ export default function MainTransactions() {
           <div className="main__body body">
             <div className="body__content">
               {isLoaded ? (
-                <MianTable
+                <MianContent
                   toggleModal={toggleModal}
                   setModalContent={setModalContent}
                   setIsModalOpen={setIsModalOpen}

@@ -34,25 +34,12 @@
 
     .header__title {
       margin: 0 auto;
-    }
-
-    .btn {
-      &__item {
-        border: none;
-        font-size: larger;
-        color: black;
-        font-weight: 100;
-        background-color: inherit;
-      }
+      padding-top: 12px;
     }
   }
 
   .main {
-    padding: 20px 50px;
-    &__btn {
-      display: flex;
-      justify-content: space-between;
-    }
+    padding: 20px 50px 40px;
   }
 
   .goods {

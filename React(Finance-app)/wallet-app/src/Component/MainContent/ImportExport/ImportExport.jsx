@@ -1,8 +1,10 @@
 import "./index.scss";
 import Papa from "papaparse";
-import { postData } from "../../Api/api";
+import { postData } from "../../../Api/api";
 import { useDispatch, useSelector } from "react-redux";
-import { getNewData } from "../../store/actions/transactions/data";
+import { getNewData } from "../../../store/actions/transactions/data";
+import Button from "../../Button/Button";
+import PropTypes from "prop-types";
 
 export default function ImportExport({
   toggleModal,
@@ -74,13 +76,14 @@ export default function ImportExport({
 
   return (
     <div className="import-export">
-      <button id="import" className="btn" onClick={importFile}>
-        Import
-      </button>
-
-      <button id="export" className="btn" onClick={exportCSVFile}>
-        Export
-      </button>
+      <Button btn={[{ id: 1, text: "Import" }]} btnAction={importFile} />
+      <Button btn={[{ id: 2, text: "Export" }]} btnAction={exportCSVFile} />
     </div>
   );
 }
+
+ImportExport.propTypes = {
+  toggleModal: PropTypes.func,
+  setModalContent: PropTypes.func,
+  setIsModalOpen: PropTypes.func,
+};
