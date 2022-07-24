@@ -12,6 +12,7 @@ import ImportExport from "./ImportExport/ImportExport";
 import MainTable from "./MainTable/MainTable";
 import Button from "../Button/Button";
 import PropTypes from "prop-types";
+import Modal from "../Modal/Modal";
 
 export default function MainContent({
   toggleModal,
@@ -24,8 +25,21 @@ export default function MainContent({
 
   //Delete Transaction
   const deleteTransaction = (props) => {
-    deleteData(props.data[0].TransactionId);
-    dispatch(deleteItem(props.data[0].TransactionId));
+    toggleModal();
+    setModalContent({
+      title: "Press YES to confirm the deletion",
+      content: (
+        <p>
+          Are you sure you want to delete this transaction from the database?
+        </p>
+      ),
+      btn: [{ id: 1, text: "YES" }],
+      btnAction: () => {
+        deleteData(props.data[0].TransactionId);
+        dispatch(deleteItem(props.data[0].TransactionId));
+        setIsModalOpen(false);
+      },
+    });
   };
 
   //Edit Transaction
@@ -76,7 +90,7 @@ export default function MainContent({
           initialValue={getInitialValue(data)}
           isValid={editDataFunc}
           setIsModalOpen={setIsModalOpen}
-          btn={[{ id: 1, text: "Edit" }]}
+          btn={[{ id: 1, text: "Save" }]}
         />
       ),
     });
@@ -95,7 +109,7 @@ export default function MainContent({
         Cell: (props) => (
           <>
             <Button
-              btn={[{ id: 1, text: "Edits" }]}
+              btn={[{ id: 1, text: "Edit" }]}
               btnAction={() => editTransactions(props)}
             />
             <Button

@@ -1,7 +1,8 @@
 import "./index.scss";
 import PropTypes from "prop-types";
+import Button from "../Button/Button";
 
-export default function Modal({ closeModal, actionWithModal, content }) {
+export default function Modal({ closeModal, content }) {
   return (
     <>
       <div className="modal-win">
@@ -15,7 +16,12 @@ export default function Modal({ closeModal, actionWithModal, content }) {
                 </button>
               </div>
             </div>
-            <div className="modal-win__main main">{content.content}</div>
+            <div className="modal-win__main main">
+              {content.content}
+              {content.btn && (
+                <Button btn={content.btn} btnAction={content.btnAction} />
+              )}
+            </div>
           </div>
         </div>
       </div>

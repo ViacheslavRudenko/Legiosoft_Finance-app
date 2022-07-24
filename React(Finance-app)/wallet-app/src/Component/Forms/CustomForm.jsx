@@ -3,7 +3,6 @@ import CustomErrorMessage from "./CustomErrorMessage";
 import { Form, Formik } from "formik";
 import Button from "../Button/Button";
 import PropTypes from "prop-types";
-import { statusData, typeData } from "../MainContent/Filters/data";
 export default function CustomForm({
   forms,
   valuesValidation,
