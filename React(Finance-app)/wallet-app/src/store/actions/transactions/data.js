@@ -9,15 +9,15 @@ import {
   editDataValue,
 } from "../../types";
 
-const setReques = (request) => {
-  return { type: getDataRequested, payload: request };
-};
-const setData = (data) => {
-  return { type: getDataSuccess, payload: data };
-};
-const setError = (error) => {
-  return { type: getDataError, payload: error };
-};
+// const setReques = (request) => {
+//   return { type: getDataRequested, payload: request };
+// };
+// const setData = (data) => {
+//   return { type: getDataSuccess, payload: data };
+// };
+// const setError = (error) => {
+//   return { type: getDataError, payload: error };
+// };
 const deleteItem = (data) => {
   return { type: deleteData, payload: data };
 };

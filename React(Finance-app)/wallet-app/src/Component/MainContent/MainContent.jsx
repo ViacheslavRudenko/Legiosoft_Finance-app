@@ -9,8 +9,8 @@ import { useTable, useGlobalFilter, usePagination } from "react-table";
 import Filters from "./Filters/Filters";
 import ImportExport from "./ImportExport/ImportExport";
 import MainTable from "./MainTable/MainTable";
-import Button from "../Button/Button";
 import PropTypes from "prop-types";
+import { Button } from "../../App";
 
 export default function MainContent({
   toggleModal,
@@ -27,16 +27,21 @@ export default function MainContent({
     setModalContent({
       title: "Press YES to confirm the deletion",
       content: (
-        <p>
-          Are you sure you want to delete this transaction from the database?
-        </p>
+        <>
+          <p>
+            Are you sure you want to delete this transaction from the database?
+          </p>
+          <Button
+            onClick={() => {
+              deleteData(props.data[0].TransactionId);
+              dispatch(deleteItem(props.data[0].TransactionId));
+              setIsModalOpen(false);
+            }}
+          >
+            YES
+          </Button>
+        </>
       ),
-      btn: [{ id: 1, text: "YES" }],
-      btnAction: () => {
-        deleteData(props.data[0].TransactionId);
-        dispatch(deleteItem(props.data[0].TransactionId));
-        setIsModalOpen(false);
-      },
     });
   };
 
@@ -76,13 +81,17 @@ export default function MainContent({
         Cell: (props) => (
           <>
             <Button
-              btn={[{ id: 1, text: "Edit" }]}
-              btnAction={() => editTransactions(props)}
-            />
+              className="btn__item"
+              onClick={() => editTransactions(props)}
+            >
+              Edit
+            </Button>
             <Button
-              btn={[{ id: 2, text: "Delete" }]}
-              btnAction={() => deleteTransaction(props)}
-            />
+              className="btn__item"
+              onClick={() => deleteTransaction(props)}
+            >
+              Delete
+            </Button>
           </>
         ),
       },
@@ -93,6 +102,7 @@ export default function MainContent({
   const transactionsData = useMemo(() => [...data], [data]);
 
   const {
+    rows,
     page,
     getTableProps,
     getTableBodyProps,
@@ -124,6 +134,7 @@ export default function MainContent({
           toggleModal={toggleModal}
           setModalContent={setModalContent}
           setIsModalOpen={setIsModalOpen}
+          filteredData={rows}
         />
       </div>
 

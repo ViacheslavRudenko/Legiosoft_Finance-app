@@ -1,12 +1,10 @@
 .main {
-  padding-top: 4px;
-  display: flex;
-  justify-content: space-between;
+  padding-top: 30px;
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  grid-gap: 30px;
   &__body {
-    width: 930px;
-  }
-  &__aside {
-    padding-top: 6px;
+    width: 100%;
   }
 }
 
@@ -14,6 +12,7 @@
   &__header {
     display: grid;
     grid-template-columns: 1fr 1fr;
+    grid-gap: 220px;
     padding-bottom: 20px;
   }
 }

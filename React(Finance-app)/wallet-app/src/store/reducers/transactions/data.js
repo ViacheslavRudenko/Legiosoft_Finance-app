@@ -5,6 +5,7 @@ import {
   deleteData,
   getNewDataItem,
   editDataValue,
+  axiosGetData,
 } from "../../types";
 
 let initialState = {
@@ -51,3 +52,18 @@ const reducerData = (state = initialState, action) => {
   }
 };
 export default reducerData;
+
+export const getDataTransactions = (payload) => ({
+  type: getDataSuccess,
+  payload,
+});
+
+export const getDataTransactionsRequest = (payload) => ({
+  type: getDataRequested,
+  payload,
+});
+export const getDataTransactionsError = (payload) => ({
+  type: getDataError,
+  payload,
+});
+export const axiosData = () => ({ type: axiosGetData });

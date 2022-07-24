@@ -1,5 +1,5 @@
 import CustomErrorMessage from "../../Forms/CustomErrorMessage";
-import Button from "../../Button/Button";
+import { Button } from "../../../App";
 import PropTypes from "prop-types";
 import { useForm } from "react-hook-form";
 import { statusData, typeData } from "../Filters/data";
@@ -53,10 +53,7 @@ export default function CustomForm({ initialValue, editData }) {
             />
           </li>
         </ul>
-        <Button
-          btnAction={handleSubmit((data) => editData(data))}
-          btn={[{ id: 1, text: "Save" }]}
-        />
+        <Button onClick={handleSubmit((data) => editData(data))}>Save</Button>
       </form>
     </>
   );

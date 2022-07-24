@@ -3,19 +3,23 @@ import Papa from "papaparse";
 import { postData } from "../../../Api/api";
 import { useDispatch, useSelector } from "react-redux";
 import { getNewData } from "../../../store/actions/transactions/data";
-import Button from "../../Button/Button";
 import PropTypes from "prop-types";
+import { Button } from "../../../App";
 
 export default function ImportExport({
   toggleModal,
   setModalContent,
   setIsModalOpen,
+  filteredData,
 }) {
-  let data = useSelector((store) => store.dataLoad.data && store.dataLoad.data);
+  //let data = useSelector((store) => store.dataLoad.data && store.dataLoad.data);
   const dispatch = useDispatch();
+
   //Export from JSOn to csv
   const exportCSVFile = () => {
-    let items = data;
+    let items = [];
+    filteredData.forEach((data) => (items = [...items, data.original]));
+
     const replacer = (key, value) => (value === null ? "" : value); // specify how you want to handle null values here
     const header = Object.keys(items[0]);
     const csv = [
@@ -76,8 +80,8 @@ export default function ImportExport({
 
   return (
     <div className="import-export">
-      <Button btn={[{ id: 1, text: "Import" }]} btnAction={importFile} />
-      <Button btn={[{ id: 2, text: "Export" }]} btnAction={exportCSVFile} />
+      <Button onClick={importFile}>Import</Button>
+      <Button onClick={exportCSVFile}>Export</Button>
     </div>
   );
 }
@@ -86,4 +90,5 @@ ImportExport.propTypes = {
   toggleModal: PropTypes.func,
   setModalContent: PropTypes.func,
   setIsModalOpen: PropTypes.func,
+  filteredData: PropTypes.array,
 };

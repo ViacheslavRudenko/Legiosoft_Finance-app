@@ -1,6 +1,11 @@
 import React from "react";
-import "./index.scss";
 import PropTypes from "prop-types";
+import styled from "styled-components";
+
+const Pagination = styled.div`
+  padding-bottom: 20px;
+  justify-content: center;
+`;
 
 export default function Paginator({
   canPreviousPage,
@@ -38,7 +43,7 @@ export default function Paginator({
 
   return (
     <>
-      <div className="pagination">
+      <Pagination>
         <button onClick={() => gotoPage(0)} disabled={!canPreviousPage}>
           {"<<"}
         </button>
@@ -62,7 +67,7 @@ export default function Paginator({
         <button onClick={() => gotoPage(pageCount - 1)} disabled={!canNextPage}>
           {">>"}
         </button>
-      </div>
+      </Pagination>
     </>
   );
 }

@@ -4,6 +4,7 @@ import { useForm } from "react-hook-form";
 import { useState } from "react";
 import CustomInput from "../Forms/CastomInput";
 import CustomErrorMessage from "../Forms/CustomErrorMessage";
+import { Button } from "../../App";
 
 export default function Login({ setIsLogin }) {
   const {
@@ -11,19 +12,18 @@ export default function Login({ setIsLogin }) {
     handleSubmit,
     formState: { errors },
   } = useForm();
+
   const [isLoginValidSubmit, setIsLoginValidSubmit] = useState(false);
 
-  //console.log("try to log-in: ", userLoginData[0]);
+  console.log("try to log-in: ", userLoginData[0]);
 
-  const isLoginValid = (values) => {
-    console.log(values);
-    return userLoginData.map((data) => {
+  const isLoginValid = (values) =>
+    userLoginData.map((data) => {
       (data.userName === values.userName &&
         data.password === values.password &&
         setIsLogin(true)) ||
         setIsLoginValidSubmit(true);
     });
-  };
 
   return (
     <form
@@ -71,7 +71,7 @@ export default function Login({ setIsLogin }) {
           />
         </li>
       </ul>
-      <input type="submit" />
+      <Button type="submit">Login</Button>
     </form>
   );
 }

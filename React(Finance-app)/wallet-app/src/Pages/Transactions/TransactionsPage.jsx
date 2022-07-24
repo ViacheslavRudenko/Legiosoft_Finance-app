@@ -4,8 +4,9 @@ import Login from "../../Component/Login/Login";
 import MianContent from "../../Component/MainContent/MainContent";
 import Modal from "../../Component/Modal/Modal";
 import TransactionsBox from "../../Component/Aside/Transactions";
-import { axiosData } from "../../store/actions/transactions/data";
+//import { axiosData } from "../../store/actions/transactions/data";
 import "./index.scss";
+import { axiosData } from "../../store/reducers/transactions/data";
 
 export default function MainTransactions() {
   const [isLogin, setIsLogin] = useState(false);

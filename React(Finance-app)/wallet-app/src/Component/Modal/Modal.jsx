@@ -1,6 +1,6 @@
 import "./index.scss";
 import PropTypes from "prop-types";
-import Button from "../Button/Button";
+import { Button } from "../../App";
 
 export default function Modal({ closeModal, content }) {
   return (
@@ -11,17 +11,12 @@ export default function Modal({ closeModal, content }) {
             <div className="modal-win__header ">
               <p className="header__title">{content.title}</p>
               <div className="header__btn btn">
-                <button className="btn__item" onClick={closeModal}>
+                <Button className="btn__item" onClick={closeModal}>
                   X
-                </button>
+                </Button>
               </div>
             </div>
-            <div className="modal-win__main main">
-              {content.content}
-              {content.btn && (
-                <Button btn={content.btn} btnAction={content.btnAction} />
-              )}
-            </div>
+            <div className="modal-win__main main">{content.content}</div>
           </div>
         </div>
       </div>

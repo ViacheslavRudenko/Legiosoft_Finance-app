@@ -1,7 +1,6 @@
 .filter {
-  padding-top: 6px;
   display: flex;
-  justify-content: start;
+  justify-content: space-between;
 
   .dropdown {
     .btn {
@@ -12,7 +11,6 @@
       border-radius: 0;
       border: 2px solid;
       box-shadow: 4px 2px 2px black;
-      margin-right: 20px;
     }
   }
   .dropdown-menu {
